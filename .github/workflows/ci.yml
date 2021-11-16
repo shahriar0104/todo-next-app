@@ -19,29 +19,27 @@ jobs:
           name: todo-backend
           repository: shahriar0104/todo-backend
           
-      - name: check backend repo
+      - name: move backend folder
         run: |
           cd ../
           mkdir todo-backend
           mv -v /home/runner/work/todo-next-app/todo-next-app/* /home/runner/work/todo-next-app/todo-backend/
           ls
           pwd
-          cd ../
+          cd ./todo-backend
           ls
           pwd
 
       - name: checkout frontend code
         uses: actions/checkout@v2
 
-      - name: repo checkout
+      - name: env setup
         run: |
-          ls
-          pwd
-        env:
-          BACKEND: /home/runner/work/todo-next-app/todo-backend
-          FRONTEND: /home/runner/work/todo-next-app/todo-next-app
-          DB_USER: sa
-          DB_PASS: toor0104~
+          export BACKEND=/home/runner/work/todo-next-app/todo-backend
+          export FRONTEND=/home/runner/work/todo-next-app/todo-next-app
+          export DB_USER=sa
+          export DB_PASS=toor0104~
+          echo $BACKEND
 
       - name: npm dependency install
         run: npm i
