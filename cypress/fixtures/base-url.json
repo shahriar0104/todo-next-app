@@ -1,0 +1,65 @@
+{
+  "body": {
+    "_links": {
+      "todos": {
+        "href": "http://localhost:8080/todos{?page,size,sort}",
+        "templated": true
+      },
+      "profile": {
+        "href": "http://localhost:8080/profile"
+      }
+    }
+  },
+  "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-allow-credentials": "true",
+    "access-control-allow-methods": "POST, GET, PUT, PATCH, DELETE, OPTIONS",
+    "access-control-allow-headers": "origin, content-type, accept, authorization, x-requested-with, X-AUTH-TOKEN, access_token, client_id, device_id, credential",
+    "access-control-max-age": "3600",
+    "access-control-expose-headers": "authorization, filename, location",
+    "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+    "content-type": "application/hal+json",
+    "transfer-encoding": "chunked",
+    "date": "Tue, 16 Nov 2021 11:56:08 GMT",
+    "keep-alive": "timeout=60",
+    "connection": "keep-alive"
+  },
+  "status": 200,
+  "statusText": "OK",
+  "isOkStatusCode": true,
+  "requestHeaders": {
+    "Connection": "keep-alive",
+    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.0.0 Chrome/94.0.4606.81 Electron/15.2.0 Safari/537.36",
+    "accept": "*/*",
+    "accept-encoding": "gzip, deflate"
+  },
+  "duration": 109,
+  "allRequestResponses": [
+    {
+      "Request Body": null,
+      "Request Headers": {
+        "Connection": "keep-alive",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.0.0 Chrome/94.0.4606.81 Electron/15.2.0 Safari/537.36",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate"
+      },
+      "Request URL": "http://localhost:8080/",
+      "Response Body": "{\n  \"_links\" : {\n    \"todos\" : {\n      \"href\" : \"http://localhost:8080/todos{?page,size,sort}\",\n      \"templated\" : true\n    },\n    \"profile\" : {\n      \"href\" : \"http://localhost:8080/profile\"\n    }\n  }\n}",
+      "Response Headers": {
+        "access-control-allow-origin": "*",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "POST, GET, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-headers": "origin, content-type, accept, authorization, x-requested-with, X-AUTH-TOKEN, access_token, client_id, device_id, credential",
+        "access-control-max-age": "3600",
+        "access-control-expose-headers": "authorization, filename, location",
+        "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+        "content-type": "application/hal+json",
+        "transfer-encoding": "chunked",
+        "date": "Tue, 16 Nov 2021 11:56:08 GMT",
+        "keep-alive": "timeout=60",
+        "connection": "keep-alive"
+      },
+      "Response Status": 200
+    }
+  ]
+}
