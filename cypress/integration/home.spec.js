@@ -1,1 +1,5 @@
-cy.exec('ls').then(res => console.log(res));
+describe('cypress running test', () => {
+    it('renders',  () => {
+        cy.visit('/');
+    });
+})
