@@ -6,7 +6,11 @@
     "dev-server": "node server.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "cypress open",
+    "cy:run": "cypress run",
+    "backend-start": "cd $BACKEND && ./mvnw spring-boot:run",
+    "start-server-test": "start-server-and-test backend-start http://localhost:8080 cy:run"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -24,9 +28,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
+    "cypress": "^9.0.0",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.3",
     "postcss": "^8.3.11",
+    "start-server-and-test": "^1.14.0",
     "tailwindcss": "^2.2.19"
   }
 }

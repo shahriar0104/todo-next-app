@@ -1,0 +1,38 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: NextJs with cypress
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout backend repo
+        uses: actions/checkout@master
+        with:
+          name: shahriar0104/todo-backend
+          ref: refs/heads/release
+
+      - name: checkout frontend code
+        uses: actions/checkout@v2
+
+      - name: repo checkout
+        run: |
+          ls
+          pwd
+        env:
+          BACKEND: ../todo-backend
+          FRONTEND: ./todo-next-app
+          DB_USER: sa
+          DB_PASS: toor0104~
+
+        - name: npm dependency install
+          run: npm i
+        - name: run backend with frontend
+          run: npm run start-server-test

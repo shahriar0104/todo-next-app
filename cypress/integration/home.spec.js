@@ -1,0 +1,1 @@
+cy.exec('ls').then(res => console.log(res));
