@@ -32,7 +32,7 @@ jobs:
           DB_USER: sa
           DB_PASS: toor0104~
 
-        - name: npm dependency install
-          run: npm i
-        - name: run backend with frontend
-          run: npm run start-server-test
+      - name: npm dependency install
+        run: npm i
+      - name: run backend with frontend
+        run: npm run start-server-test
