@@ -9,7 +9,7 @@
     "lint": "next lint",
     "test": "cypress open",
     "cy:run": "cypress run",
-    "backend-start": "cd /home/runner/work/todo-next-app/todo-backend/ && ./mvnw -N io.takari:maven:wrapper && ./mvnw spring-boot:run",
+    "backend-start": "cd /home/runner/work/todo-next-app/todo-backend/ && ./mvnw spring-boot:run",
     "start-server-test": "start-server-and-test backend-start http://localhost:8080 cy:run"
   },
   "dependencies": {

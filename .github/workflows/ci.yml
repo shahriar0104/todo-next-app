@@ -12,6 +12,20 @@ on:
 jobs:
   container:
     runs-on: ubuntu-latest
+
+    services:
+      mssql:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        env:
+          SA_PASSWORD: "centre963~"
+          ACCEPT_EULA: "Y"
+          MSSQL_AGENT_ENABLED: "true"
+        ports:
+          - "1433:1433"
+        options:
+          --name msql1
+          -h localhost
+
     steps:
       - name: checkout backend repo
         uses: actions/checkout@master
@@ -42,6 +56,18 @@ jobs:
           export DB_USER=sa
           export DB_PASS=toor0104~
           echo $BACKEND
+
+      - name: create db
+        run: |
+          ls
+          docker exec -i msql1 /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P centre963~ -d master -Q "CREATE DATABASE [todo]"
+
+      -name: setup java 11
+       uses: actions/setup-java@v2
+       with:
+         java-version: '11'
+         distribution: 'adopt'
+         cache: maven
 
       - name: npm dependency install
         run: npm i
