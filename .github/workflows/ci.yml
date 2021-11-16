@@ -17,6 +17,12 @@ jobs:
         uses: actions/checkout@master
         with:
           name: shahriar0104/todo-backend
+          
+      - name: checkout backend repo
+        run: |
+          cd ../
+          ls
+          pwd
 
       - name: checkout frontend code
         uses: actions/checkout@v2
