@@ -21,6 +21,12 @@ jobs:
           
       - name: check backend repo
         run: |
+          cd ../
+          mkdir todo-backend
+          mv -v /home/runner/work/todo-next-app/todo-next-app/* /home/runner/work/todo-next-app/todo-backend/
+          ls
+          pwd
+          cd ../
           ls
           pwd
 
