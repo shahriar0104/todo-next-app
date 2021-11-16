@@ -17,7 +17,7 @@ jobs:
       mssql:
         image: mcr.microsoft.com/mssql/server:2019-latest
         env:
-          SA_PASSWORD: "centre963~"
+          SA_PASSWORD: "toor0104~"
           ACCEPT_EULA: "Y"
           MSSQL_AGENT_ENABLED: "true"
         ports:
@@ -55,17 +55,17 @@ jobs:
           export FRONTEND=/home/runner/work/todo-next-app/todo-next-app
           export DB_USER=sa
           export DB_PASS=toor0104~
-          echo $BACKEND
 
       - name: create db
         run: |
           ls
-          docker exec -i msql1 /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P centre963~ -d master -Q "CREATE DATABASE [todo]"
+          docker exec -i msql1 /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P toor0104~ -d master -Q "CREATE DATABASE [todo]"
 
       - name: setup java 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+          working-directory: /home/runner/work/todo-next-app/todo-backend
           distribution: 'adopt'
           cache: maven
 
