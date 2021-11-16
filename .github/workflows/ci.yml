@@ -16,11 +16,11 @@ jobs:
       - name: checkout backend repo
         uses: actions/checkout@master
         with:
-          name: shahriar0104/todo-backend
+          name: todo-backend
+          repository: shahriar0104/todo-backend
           
-      - name: checkout backend repo
+      - name: check backend repo
         run: |
-          cd ../
           ls
           pwd
 
@@ -32,8 +32,8 @@ jobs:
           ls
           pwd
         env:
-          BACKEND: ../todo-backend
-          FRONTEND: ./todo-next-app
+          BACKEND: /home/runner/work/todo-next-app/todo-backend
+          FRONTEND: /home/runner/work/todo-next-app/todo-next-app
           DB_USER: sa
           DB_PASS: toor0104~
 
