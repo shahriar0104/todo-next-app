@@ -61,13 +61,13 @@ jobs:
           ls
           docker exec -i msql1 /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P toor0104~ -d master -Q "CREATE DATABASE [todo]"
 
-      - name: setup java 11
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          working-directory: /home/runner/work/todo-next-app/todo-backend
-          distribution: 'adopt'
-          cache: maven
+#       - name: setup java 11
+#         uses: actions/setup-java@v2
+#         with:
+#           java-version: '11'
+#           working-directory: /home/runner/work/todo-next-app/todo-backend
+#           distribution: 'adopt'
+#           cache: maven
 
       - name: npm dependency install
         run: npm i
