@@ -33,33 +33,30 @@ jobs:
           name: todo-backend
           repository: shahriar0104/todo-backend
           
+      - name: env setup
+        run: |
+          echo "BASE_PATH=/home/runner/work/todo-next-app/" >> $GITHUB_ENV
+          echo "BACKEND=/home/runner/work/todo-next-app/todo-backend/" >> $GITHUB_ENV
+          echo "FRONTEND=/home/runner/work/todo-next-app/todo-next-app/" >> $GITHUB_ENV
+          echo "DB_USER=sa" >> $GITHUB_ENV
+          echo "DB_PASS=toor0104~" >> $GITHUB_ENV
+          
       - name: move backend folder
         run: |
           cd ../
           mkdir todo-backend
-          mv -v /home/runner/work/todo-next-app/todo-next-app/* /home/runner/work/todo-next-app/todo-backend/
-          chmod -R 755 /home/runner/work/todo-next-app/
-          ls
-          pwd
+          mv -v /home/runner/work/todo-next-app/todo-next-app/* $BACKEND
+          chmod -R 755 $BASE_PATH
           cd ./todo-backend
           mvn -N io.takari:maven:wrapper
-          ls
-          pwd
 
       - name: checkout frontend code
         uses: actions/checkout@v2
 
-      - name: env setup
-        run: |
-          echo "BACKEND=/home/runner/work/todo-next-app/todo-backend" >> $GITHUB_ENV
-          echo "FRONTEND=/home/runner/work/todo-next-app/todo-next-app" >> $GITHUB_ENV
-          echo "DB_USER=sa" >> $GITHUB_ENV
-          echo "DB_PASS=toor0104~" >> $GITHUB_ENV
-
       - name: create db
         run: |
           ls
-          docker exec -i msql1 /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P toor0104~ -d master -Q "CREATE DATABASE [todo]"
+          docker exec -i msql1 /opt/mssql-tools/bin/sqlcmd -S mssql -U ${DB_USER} -P ${DB_PASS} -d master -Q "CREATE DATABASE [todo]"
 
 #       - name: setup java 11
 #         uses: actions/setup-java@v2
