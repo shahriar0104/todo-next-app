@@ -51,10 +51,10 @@ jobs:
 
       - name: env setup
         run: |
-          export BACKEND=/home/runner/work/todo-next-app/todo-backend
-          export FRONTEND=/home/runner/work/todo-next-app/todo-next-app
-          export DB_USER=sa
-          export DB_PASS=toor0104~
+          echo "BACKEND=/home/runner/work/todo-next-app/todo-backend" >> $GITHUB_ENV
+          echo "FRONTEND=/home/runner/work/todo-next-app/todo-next-app" >> $GITHUB_ENV
+          echo "DB_USER=sa" >> $GITHUB_ENV
+          echo "DB_PASS=toor0104~" >> $GITHUB_ENV
 
       - name: create db
         run: |
