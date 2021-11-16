@@ -28,6 +28,7 @@ jobs:
           ls
           pwd
           cd ./todo-backend
+          mvn -N io.takari:maven:wrapper
           ls
           pwd
 
