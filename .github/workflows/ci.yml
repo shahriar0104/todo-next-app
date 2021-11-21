@@ -13,47 +13,47 @@ jobs:
   container:
     runs-on: ubuntu-latest
 
-    services:
-      mssql:
-        image: mcr.microsoft.com/mssql/server:2019-latest
-        env:
-          SA_PASSWORD: "toor0104~"
-          ACCEPT_EULA: "Y"
-          MSSQL_AGENT_ENABLED: "true"
-        ports:
-          - "1433:1433"
-        options:
-          --name msql1
-          -h localhost
+#    services:
+#      mssql:
+#        image: mcr.microsoft.com/mssql/server:2019-latest
+#        env:
+#          SA_PASSWORD: "toor0104~"
+#          ACCEPT_EULA: "Y"
+#          MSSQL_AGENT_ENABLED: "true"
+#        ports:
+#          - "1433:1433"
+#        options:
+#          --name msql1
+#          -h localhost
 
     steps:
-      - name: checkout backend repo
-        uses: actions/checkout@master
-        with:
-          name: todo-backend
-          repository: shahriar0104/todo-backend
-
-      - name: env setup
-        run: |
-          echo "BASE_PATH=/home/runner/work/todo-next-app/" >> $GITHUB_ENV
-          echo "BACKEND=/home/runner/work/todo-next-app/todo-backend/" >> $GITHUB_ENV
-          echo "FRONTEND=/home/runner/work/todo-next-app/todo-next-app/" >> $GITHUB_ENV
-          echo "DB_USER=sa" >> $GITHUB_ENV
-          echo "DB_PASS=toor0104~" >> $GITHUB_ENV
-
-      - name: move backend folder
-        run: |
-          cd ../
-          mkdir todo-backend
-          mv -v ${FRONTEND}* $BACKEND
-          chmod -R 755 $BASE_PATH
-          cd ./todo-backend
-          mvn -N io.takari:maven:wrapper
+#      - name: checkout backend repo
+#        uses: actions/checkout@master
+#        with:
+#          name: todo-backend
+#          repository: shahriar0104/todo-backend
+#
+#      - name: env setup
+#        run: |
+#          echo "BASE_PATH=/home/runner/work/todo-next-app/" >> $GITHUB_ENV
+#          echo "BACKEND=/home/runner/work/todo-next-app/todo-backend/" >> $GITHUB_ENV
+#          echo "FRONTEND=/home/runner/work/todo-next-app/todo-next-app/" >> $GITHUB_ENV
+#          echo "DB_USER=sa" >> $GITHUB_ENV
+#          echo "DB_PASS=toor0104~" >> $GITHUB_ENV
+#
+#      - name: move backend folder
+#        run: |
+#          cd ../
+#          mkdir todo-backend
+#          mv -v ${FRONTEND}* $BACKEND
+#          chmod -R 755 $BASE_PATH
+#          cd ./todo-backend
+#          mvn -N io.takari:maven:wrapper
 
       - name: checkout frontend code
         uses: actions/checkout@v2
-      - name: Install npm dependencies
-        run: npm install
+#      - name: Install npm dependencies
+#        run: npm install
 #      - name: Run build task
 #        run: npm run build --if-present
       - name: Deploy to Server
@@ -82,12 +82,12 @@ jobs:
             npm run dev
 
 
-      - name: create db
-        run: |
-          ls
-          docker exec -i msql1 /opt/mssql-tools/bin/sqlcmd -S mssql -U ${DB_USER} -P ${DB_PASS} -d master -Q "CREATE DATABASE [todo]"
+#      - name: create db
+#        run: |
+#          ls
+#          docker exec -i msql1 /opt/mssql-tools/bin/sqlcmd -S mssql -U ${DB_USER} -P ${DB_PASS} -d master -Q "CREATE DATABASE [todo]"
 
 #      - name: npm dependency install
 #        run: npm i
-      - name: run backend with frontend
-        run: npm run start-server-test
+#      - name: run backend with frontend
+#        run: npm run start-server-test
