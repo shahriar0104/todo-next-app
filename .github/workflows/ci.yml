@@ -66,20 +66,34 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: "/node_modules/"
-
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
+          
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@release
         with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-#          password: ${{ secrets.PASSWORD }}
-#          port: ${{ secrets.PORT }}
-          script: |
+          command: |
+            ls -a
             cd todo-next-app/
             tmux
             npm i
             npm run dev
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+#           passphrase: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.SERVER_SSH_KEY }}
+
+#       - name: executing remote ssh commands using password
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.REMOTE_HOST }}
+#           username: ${{ secrets.REMOTE_USER }}
+#           key: ${{ secrets.SERVER_SSH_KEY }}
+#          password: ${{ secrets.PASSWORD }}
+#          port: ${{ secrets.PORT }}
+#           script: |
+#             cd todo-next-app/
+#             tmux
+#             npm i
+#             npm run dev
 
 
 #      - name: create db
