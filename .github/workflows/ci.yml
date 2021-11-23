@@ -73,27 +73,14 @@ jobs:
           command: |
             ls -a
             cd todo-next-app/
-            tmux
-            npm i
-            npm run dev
+            docker build . -t todo-frontend-docker
+            docker run -d -p 4000:4000 todo-frontend-docker:latest
+#            tmux
+#            npm i
+#            npm run dev
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
-#           passphrase: ${{ secrets.PASSPHRASE }}
           privateKey: ${{ secrets.SERVER_SSH_KEY }}
-
-#       - name: executing remote ssh commands using password
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: ${{ secrets.REMOTE_HOST }}
-#           username: ${{ secrets.REMOTE_USER }}
-#           key: ${{ secrets.SERVER_SSH_KEY }}
-#          password: ${{ secrets.PASSWORD }}
-#          port: ${{ secrets.PORT }}
-#           script: |
-#             cd todo-next-app/
-#             tmux
-#             npm i
-#             npm run dev
 
 
 #      - name: create db
