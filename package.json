@@ -2,7 +2,7 @@
   "name": "todo-next-app",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4000",
     "dev-server": "node server.js",
     "build": "next build",
     "start": "next start",
