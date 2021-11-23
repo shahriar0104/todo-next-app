@@ -65,7 +65,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: "/node_modules/"
+          EXCLUDE: "/.next/, /node_modules/"
           
       - name: ls -a via ssh
         uses: garygrossgarten/github-action-ssh@release
