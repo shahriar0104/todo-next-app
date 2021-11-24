@@ -9,7 +9,7 @@ const handle = app.getRequestHandler()
 
 const apiPaths = {
     '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://localhost:5019',
         pathRewrite: {
             '^/api': '/api'
         },

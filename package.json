@@ -10,7 +10,7 @@
     "test": "cypress open",
     "cy:run": "cypress run",
     "backend-start": "cd $BACKEND && ./mvnw spring-boot:run",
-    "start-server-test": "start-server-and-test backend-start http://localhost:8080 cy:run"
+    "start-server-test": "start-server-and-test backend-start http://localhost:5019 cy:run"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

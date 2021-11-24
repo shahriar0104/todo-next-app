@@ -77,9 +77,6 @@ jobs:
             docker build . -t todo-frontend-docker
             docker rm -f todo-frontend
             docker run -d --name todo-frontend -p 4000:4000 todo-frontend-docker:latest
-#            tmux
-#            npm i
-#            npm run dev
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           privateKey: ${{ secrets.SERVER_SSH_KEY }}
