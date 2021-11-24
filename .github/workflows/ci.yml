@@ -67,14 +67,16 @@ jobs:
           TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: "/.next/, /node_modules/"
           
-      - name: ls -a via ssh
+      - name: Run inside docker via ssh
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: |
             ls -a
-            cd todo-next-app/
+            cd work/todo-next-app/
+            chmod -R 755 *
             docker build . -t todo-frontend-docker
-            docker run -d -p 4000:4000 todo-frontend-docker:latest
+            docker rm -f todo-frontend
+            docker run -d --name todo-frontend -p 4000:4000 todo-frontend-docker:latest
 #            tmux
 #            npm i
 #            npm run dev
